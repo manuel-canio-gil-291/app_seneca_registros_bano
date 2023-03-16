@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
-import 'package:table_calendar/table_calendar.dart';
 
 class CalendarioPage extends StatefulWidget {
   const CalendarioPage({super.key});
@@ -75,55 +74,12 @@ class _CalendarioPageState extends State<CalendarioPage> {
       firstDayOfWeek: DateTime.monday,
       controller: fechaInicio,
       monthViewSettings: const MonthViewSettings(
-        appointmentDisplayMode: MonthAppointmentDisplayMode.appointment
-      ),
+          appointmentDisplayMode: MonthAppointmentDisplayMode.appointment),
       headerStyle: const CalendarHeaderStyle(
-        backgroundColor: Colors.blue,
-        textAlign: TextAlign.center,
-        textStyle: TextStyle(color: Colors.white)
-      ),
-
+          backgroundColor: Colors.blue,
+          textAlign: TextAlign.center,
+          textStyle: TextStyle(color: Colors.white)),
     );
-    //return TableCalendar(
-    //  focusedDay: DateTime.now(),
-    //  firstDay: DateTime.now(),
-    //  lastDay: DateTime.now(),
-    //  calendarFormat: CalendarFormat.month,
-    //  calendarStyle: CalendarStyle(
-    //      rangeHighlightColor: Theme.of(context).primaryColor,
-    //      todayTextStyle: const TextStyle(
-    //          fontWeight: FontWeight.bold,
-    //          fontSize: 18.0,
-    //          color: Colors.white)),
-    //  headerStyle: HeaderStyle(
-    //      titleCentered: true,
-    //      formatButtonDecoration: BoxDecoration(
-    //          color: Colors.blue, borderRadius: BorderRadius.circular(20.0)),
-    //      formatButtonTextStyle: const TextStyle(color: Colors.white),
-    //      formatButtonShowsNext: false),
-    //      startingDayOfWeek: StartingDayOfWeek.monday,
-    //  calendarBuilders: CalendarBuilders(
-    //    selectedBuilder: (context, date, events) => Container(
-    //      margin: const EdgeInsets.all(4.0),
-    //      alignment: Alignment.center,
-    //      decoration: BoxDecoration(
-    //          color: Theme.of(context).primaryColor,
-    //          borderRadius: BorderRadius.circular(10.0)),
-    //      child:
-    //          Text(date.day.toString(), style: const TextStyle(color: Colors.white)),
-    //    ),
-    //    // Dia por defecto
-    //    todayBuilder: (context, date, events) => Container(
-    //      margin: const EdgeInsets.all(4.0),
-    //      alignment: Alignment.center,
-    //      decoration: BoxDecoration(
-    //          color: Theme.of(context).primaryColor,
-    //          borderRadius: BorderRadius.circular(10.0)),
-    //      child:
-    //          Text(date.day.toString(), style: const TextStyle(color: Colors.white)),
-    //    ),
-    //  ),
-    //);
   }
 
   Widget calendarioFin() {
@@ -134,54 +90,12 @@ class _CalendarioPageState extends State<CalendarioPage> {
       firstDayOfWeek: DateTime.monday,
       controller: fechaFin,
       monthViewSettings: const MonthViewSettings(
-        appointmentDisplayMode: MonthAppointmentDisplayMode.appointment
-      ),
+          appointmentDisplayMode: MonthAppointmentDisplayMode.appointment),
       headerStyle: const CalendarHeaderStyle(
-        backgroundColor: Colors.blue,
-        textAlign: TextAlign.center,
-        textStyle: TextStyle(color: Colors.white)
-      ),
+          backgroundColor: Colors.blue,
+          textAlign: TextAlign.center,
+          textStyle: TextStyle(color: Colors.white)),
     );
-    //return TableCalendar(
-    //  focusedDay: DateTime.now(),
-    //  firstDay: DateTime.now(),
-    //  lastDay: DateTime.now(),
-    //  calendarFormat: CalendarFormat.month,
-    //  calendarStyle: CalendarStyle(
-    //      rangeHighlightColor: Theme.of(context).primaryColor,
-    //      todayTextStyle: const TextStyle(
-    //          fontWeight: FontWeight.bold,
-    //          fontSize: 18.0,
-    //          color: Colors.white)),
-    //  headerStyle: HeaderStyle(
-    //      titleCentered: true,
-    //      formatButtonDecoration: BoxDecoration(
-    //          color: Colors.blue, borderRadius: BorderRadius.circular(20.0)),
-    //      formatButtonTextStyle: const TextStyle(color: Colors.white),
-    //      formatButtonShowsNext: false),
-    //  startingDayOfWeek: StartingDayOfWeek.monday,
-    //  calendarBuilders: CalendarBuilders(
-    //      selectedBuilder: (context, date, events) => Container(
-    //            margin: const EdgeInsets.all(4.0),
-    //            alignment: Alignment.center,
-    //            decoration: BoxDecoration(
-    //                color: Theme.of(context).primaryColor,
-    //                borderRadius: BorderRadius.circular(10.0)),
-    //            child: Text(date.day.toString(),
-    //                style: const TextStyle(color: Colors.white)),
-    //          ),
-    //      todayBuilder: (context, date, events) => Container(
-    //            margin: const EdgeInsets.all(4.0),
-    //            alignment: Alignment.center,
-    //            decoration: BoxDecoration(
-    //                color: Theme.of(context).primaryColor,
-    //                borderRadius: BorderRadius.circular(10.0)),
-    //            child: Text(
-    //              date.day.toString(),
-    //              style: const TextStyle(color: Colors.white),
-    //            ),
-    //          )),
-    //);
   }
 
   formatearFecha(String todo) {
