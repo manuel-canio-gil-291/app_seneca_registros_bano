@@ -113,7 +113,7 @@ class _LoginPageState extends State<LoginPage> {
         //splashColor: Colors.blueAccent,
       ),
       onPressed: () {
-        //comprobarUsuario(context);
+        comprobarUsuario(context);
         //Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
       },
       child: const Text(
