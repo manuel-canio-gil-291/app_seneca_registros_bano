@@ -21,41 +21,72 @@ class InformesFiltradosPage extends StatelessWidget {
     String fechaFin = argumento3.substring(divisor3 + 1);
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Alumno: $nombre Curso: $curso')
-      ),
+      appBar: AppBar(title: Text('Alumno: $nombre Curso: $curso')),
       body: FutureBuilder(
-        // Le pasamos los parámetros para filtrar los registros de nuestra hoja de cálculo
-        future: registro.getRegistrosFiltrados(fechaInicio, fechaFin, nombre),
-        builder: (BuildContext context, AsyncSnapshot snapshot) {
-          if(snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator());
-          } else {
-            return _ListaRegistrosFiltrados(lisRegistros: snapshot.data);
-          }
-        }
-      ),
+          // Le pasamos los parámetros para filtrar los registros de nuestra hoja de cálculo
+          future: registro.getRegistrosFiltrados(fechaInicio, fechaFin, nombre),
+          builder: (BuildContext context, AsyncSnapshot snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Center(child: CircularProgressIndicator());
+            } else {
+              return _ListaRegistrosFiltrados(
+                  lisRegistros: snapshot.data, nombreAlumno: nombre);
+            }
+          }),
     );
   }
 }
 
 class _ListaRegistrosFiltrados extends StatelessWidget {
   final List<Registro> lisRegistros;
+  String nombreAlumno;
 
-  const _ListaRegistrosFiltrados({required this.lisRegistros});
+  _ListaRegistrosFiltrados(
+      {required this.lisRegistros, required this.nombreAlumno});
 
   @override
   Widget build(BuildContext context) {
+    int veces = 0;
     return ListView.builder(
-      itemCount: lisRegistros.length,
-      itemBuilder: (context, int index) {
-        final registro = lisRegistros[index];
-        return ListTile(
-          title: Text('Dia/Hora: ${registro.diaHora}, Accion: ${registro.accion}'
-          ),
-          onTap: () {},
-        );
-      }
-    );
+        itemCount: lisRegistros.length,
+        itemBuilder: (BuildContext context, int index) {
+          final registro = lisRegistros[index];
+          if (registro.accion == 'Salida') {
+            veces++;
+          }
+          return ListTile(
+            title: Text(
+                'Dia/Hora: ${registro.diaHora}, Accion: ${registro.accion}'),
+            onTap: () {
+              mostrarDialogoNumeroVeces(context, veces, nombreAlumno);
+            },
+          );
+        });
+  }
+
+  mostrarDialogoNumeroVeces(
+      BuildContext context, int veces, String nombreAlumno) {
+    return showDialog<void>(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: const Text('Numero de veces'),
+            content: SingleChildScrollView(
+              child: ListBody(
+                children: <Widget>[
+                  Text('El alumno $nombreAlumno ha ido al baño $veces veces.')
+                ],
+              ),
+            ),
+            actions: <Widget>[
+              TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: const Text('OK'))
+            ],
+          );
+        });
   }
 }

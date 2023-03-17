@@ -16,8 +16,6 @@ class UsuariosProvider {
     final resp = await http.get(url);
     final decodeData = json.decode(resp.body);
 
-    print(decodeData);
-
     final user = Usuario.fromJsonList(decodeData);
 
     return user.items;

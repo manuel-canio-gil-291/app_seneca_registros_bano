@@ -17,12 +17,9 @@ class AlumnosProvider {
           //Pasamos por aquí el argumento para que nos muestre la lista solo con los elementos filtrados
           'curso': curso
         });
-    print(url);
 
     final resp = await http.get(url);
     final decodeData = json.decode(resp.body);
-
-    print(decodeData);
 
     final alumno = Alumnos.fromJsonList(decodeData);
 

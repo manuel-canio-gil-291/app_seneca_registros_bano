@@ -16,8 +16,6 @@ class PersonalProvider {
     final resp = await http.get(url);
     final decodeData = json.decode(resp.body);
 
-    print(decodeData);
-
     final per = Persona.fromJsonList(decodeData);
 
     return per.items;

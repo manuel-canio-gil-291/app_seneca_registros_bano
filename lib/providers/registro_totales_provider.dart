@@ -18,11 +18,6 @@ class InformesTotalesProvider {
 
     final registro = Informes.fromJsonList(decodeData);
 
-    print(registro.lista);
-    print('-----------------------');
-    print(registro.resultunico);
-    print('-----------------------');
-
     return registro.resultunico;
   }
 }

@@ -16,8 +16,6 @@ class CursosProvider {
     final resp = await http.get(url);
     final decodeData = json.decode(resp.body);
 
-    print(decodeData);
-
     final grupo = Grupos.fromJsonList(decodeData);
 
     return grupo.items;
