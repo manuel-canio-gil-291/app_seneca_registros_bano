@@ -1,6 +1,9 @@
+import 'package:app_seneca_registros_bano/services/firebase_service.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:app_seneca_registros_bano/utils/models.dart';
 import 'package:app_seneca_registros_bano/utils/providers.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -29,6 +32,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
+    bool loading = false;
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -55,6 +59,11 @@ class _LoginPageState extends State<LoginPage> {
             SizedBox(width: width * 0.85, child: _textFieldPassword()),
             const SizedBox(height: 25.0),
             SizedBox(width: width * 0.85, height: 40.0, child: _botonEntrar()),
+            const SizedBox(height: 25.0),
+            SizedBox(
+                width: width * 0.85,
+                height: 40.0,
+                child: _botonEntrarGoogle(loading)),
             const SizedBox(height: 25.0),
             _recordarpassword(),
             const SizedBox(height: 25.0),
@@ -123,6 +132,37 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
+  Widget _botonEntrarGoogle(bool loading) {
+    return ElevatedButton.icon(
+      onPressed: () async {
+        setState(() {
+          loading = true;
+        });
+        FirebaseService service = FirebaseService();
+        try {
+          await service.signInwithGoogle();
+          Navigator.pushNamed(context, 'homepage');
+        } catch (e) {
+          if (e is FirebaseAuthException) {
+            showMessage(e.message!);
+          }
+        }
+        setState(() {
+          loading = false;
+        });
+      },
+      style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.white,
+          foregroundColor: Colors.blue,
+          padding: const EdgeInsets.all(10.0)),
+      icon: const FaIcon(FontAwesomeIcons.google),
+      label: const Text(
+        "Entrar con Google",
+        style: TextStyle(fontSize: 20.0),
+      ),
+    );
+  }
+
   Widget _recordarpassword() {
     return const Text(
       'No recuerdo mi contraseña',
@@ -166,5 +206,23 @@ class _LoginPageState extends State<LoginPage> {
       //Navigator.push(
       //    context, MaterialPageRoute(builder: (context) => HomePage()));
     }
+  }
+
+  void showMessage(String message) {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: const Text("Error"),
+            content: Text("Se ha producido un error: $message"),
+            actions: <Widget>[
+              TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: const Text('OK'))
+            ],
+          );
+        });
   }
 }

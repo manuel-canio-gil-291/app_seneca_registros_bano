@@ -39,6 +39,10 @@ dependencies:
   table_calendar: ^3.0.9
   url_launcher: ^6.1.10
   syncfusion_flutter_calendar: ^20.4.54
+  font_awesome_flutter: ^10.4.0
+  firebase_core: ^2.8.0
+  google_sign_in: ^6.0.2
+  firebase_auth: ^4.2.2
 
 dev_dependencies:
   flutter_test:

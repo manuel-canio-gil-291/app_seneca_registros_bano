@@ -1,3 +1,5 @@
+import 'package:app_seneca_registros_bano/services/firebase_service.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:app_seneca_registros_bano/utils/pages.dart';
 
@@ -9,6 +11,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  User? user = FirebaseAuth.instance.currentUser;
   int _selectedIndex = 0;
   static const List<Widget> _widgetOptions = <Widget>[Text('Index 0: Inicio')];
 
@@ -135,7 +138,25 @@ class _HomePageState extends State<HomePage> {
                         ))
                   ],
                 ),
-              )
+              ),
+              if (user != null)
+                Center(
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 240, top: 5.0),
+                    child: TextButton(
+                      onPressed: () async {
+                        FirebaseService service = FirebaseService();
+                        await service.signOutFromGoogle();
+                        Navigator.pushNamed(context, '/');
+                      },
+                      child: const Text(
+                        "Cerrar sesión",
+                        style: TextStyle(
+                            color: Colors.blue, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ),
+                ),
             ],
           ),
         ),

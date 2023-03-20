@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "224306810903",
+    "project_id": "app-seneca-registros-bano-5e22",
+    "storage_bucket": "app-seneca-registros-bano-5e22.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:224306810903:android:e07d77e38d0a19194ccc52",
+        "android_client_info": {
+          "package_name": "com.example.app_seneca_registros_bano"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "224306810903-5ukq0m9prd8abuu6p2ra9frt7btdvjm4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnLsdk7Pq-rMU0-wguiiS64YW3yhO4Mtg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "224306810903-5ukq0m9prd8abuu6p2ra9frt7btdvjm4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
