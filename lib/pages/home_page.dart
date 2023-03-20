@@ -225,6 +225,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   //Widget para barra de navegación homepage(opcional)
+  //ignore: unused_element
   Widget _barraNavegacion() {
     return BottomNavigationBar(
       elevation: 40.0,

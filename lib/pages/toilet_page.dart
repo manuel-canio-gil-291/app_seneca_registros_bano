@@ -151,7 +151,7 @@ class _ToiletPageState extends State<ToiletPage> {
             TextButton(
               child: const Text('Volver'),
               onPressed: () {
-                Navigator.pushNamed(context, 'homepage');
+                Navigator.of(context).pop();
               },
             ),
           ],

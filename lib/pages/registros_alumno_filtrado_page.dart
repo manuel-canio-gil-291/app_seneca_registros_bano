@@ -39,9 +39,9 @@ class InformesFiltradosPage extends StatelessWidget {
 
 class _ListaRegistrosFiltrados extends StatelessWidget {
   final List<Registro> lisRegistros;
-  String nombreAlumno;
+  final String nombreAlumno;
 
-  _ListaRegistrosFiltrados(
+  const _ListaRegistrosFiltrados(
       {required this.lisRegistros, required this.nombreAlumno});
 
   @override
