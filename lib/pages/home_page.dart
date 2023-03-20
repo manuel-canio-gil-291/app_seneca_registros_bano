@@ -102,7 +102,7 @@ class _HomePageState extends State<HomePage> {
                 margin: const EdgeInsets.only(top: 25.0),
                 color: Colors.lightBlue,
                 height: height * 0.1,
-                child: const Row(
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -110,20 +110,20 @@ class _HomePageState extends State<HomePage> {
                         onPressed: null,
                         child: Row(
                           children: [
-                            SizedBox(width: 15.0),
-                            Icon(Icons.alarm, color: Colors.white),
-                            SizedBox(width: 15.0),
-                            Text(
+                            const SizedBox(width: 15.0),
+                            const Icon(Icons.alarm, color: Colors.white),
+                            const SizedBox(width: 15.0),
+                            const Text(
                               'Avisos',
                               textAlign: TextAlign.right,
                               style: TextStyle(color: Colors.white),
                             ),
-                            SizedBox(width: 10.0),
-                            VerticalDivider(color: Colors.white),
+                            const SizedBox(width: 10.0),
+                            const VerticalDivider(color: Colors.white),
                             ElevatedButton(
                                 onPressed: null,
                                 child: Row(
-                                  children: [
+                                  children: const [
                                     Icon(Icons.library_books,
                                         color: Colors.white),
                                     SizedBox(width: 8.0),
