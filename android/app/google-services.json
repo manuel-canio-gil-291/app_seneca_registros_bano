@@ -29,6 +29,13 @@
             {
               "client_id": "224306810903-5ukq0m9prd8abuu6p2ra9frt7btdvjm4.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "224306810903-3fd68spk87ndsq1t0cct41t568q9ku1f.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.appSenecaRegistrosBano"
+              }
             }
           ]
         }
