@@ -58,14 +58,14 @@ class _ListaRegistrosFiltrados extends StatelessWidget {
             title: Text(
                 'Dia/Hora: ${registro.diaHora}, Accion: ${registro.accion}'),
             onTap: () {
-              mostrarDialogoNumeroVeces(context, veces, nombreAlumno);
+              mostrarDialogoNumeroVeces(context, veces, nombreAlumno, lisRegistros[0]);
             },
           );
         });
   }
 
   mostrarDialogoNumeroVeces(
-      BuildContext context, int veces, String nombreAlumno) {
+      BuildContext context, int veces, String nombreAlumno, Registro registroInicio) {
     return showDialog<void>(
         context: context,
         barrierDismissible: false,
@@ -75,7 +75,8 @@ class _ListaRegistrosFiltrados extends StatelessWidget {
             content: SingleChildScrollView(
               child: ListBody(
                 children: <Widget>[
-                  Text('El alumno $nombreAlumno ha ido al baño $veces veces.')
+                  Text('El alumno $nombreAlumno ha ido al baño $veces veces.'),
+                  Text('Período desde el: ${registroInicio.diaHora}')
                 ],
               ),
             ),
