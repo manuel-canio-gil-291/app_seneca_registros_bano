@@ -1,4 +1,5 @@
 import 'package:app_seneca_registros_bano/services/firebase_service.dart';
+import 'package:app_seneca_registros_bano/utils/email_checker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:app_seneca_registros_bano/utils/models.dart';
@@ -14,6 +15,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final UsuariosProvider usuario = UsuariosProvider();
+  final EmailChecker checker = EmailChecker();
 
   final controller = TextEditingController();
   final controller2 = TextEditingController();
@@ -54,19 +56,19 @@ class _LoginPageState extends State<LoginPage> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             _titulo(),
-            SizedBox(width: width * 0.85, child: _textFieldUsuario()),
-            const SizedBox(height: 25.0),
-            SizedBox(width: width * 0.85, child: _textFieldPassword()),
-            const SizedBox(height: 25.0),
-            SizedBox(width: width * 0.85, height: 40.0, child: _botonEntrar()),
-            const SizedBox(height: 25.0),
+            //SizedBox(width: width * 0.85, child: _textFieldUsuario()),
+            //const SizedBox(height: 25.0),
+            //SizedBox(width: width * 0.85, child: _textFieldPassword()),
+            //const SizedBox(height: 25.0),
+            //SizedBox(width: width * 0.85, height: 40.0, child: _botonEntrar()),
+            //const SizedBox(height: 25.0),
             SizedBox(
                 width: width * 0.85,
                 height: 40.0,
                 child: _botonEntrarGoogle(loading)),
             const SizedBox(height: 25.0),
-            _recordarpassword(),
-            const SizedBox(height: 25.0),
+            //_recordarpassword(),
+            //const SizedBox(height: 25.0),
             _imagen(),
             _version(height),
           ],
@@ -141,7 +143,13 @@ class _LoginPageState extends State<LoginPage> {
         FirebaseService service = FirebaseService();
         try {
           await service.signInwithGoogle();
-          Navigator.pushNamed(context, 'homepage');
+          if (await checker.compruebaEmail()) {
+            Navigator.pushNamedAndRemoveUntil(
+                context, 'homepage', (route) => false);
+          } else {
+            await service.signOutFromGoogle();
+            showMessageLogin();
+          }
         } catch (e) {
           if (e is FirebaseAuthException) {
             showMessage(e.message!);
@@ -206,6 +214,25 @@ class _LoginPageState extends State<LoginPage> {
       //Navigator.push(
       //    context, MaterialPageRoute(builder: (context) => HomePage()));
     }
+  }
+
+  void showMessageLogin() {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: const Text("Error"),
+            content: const Text(
+                "La cuenta de Google que ha iniciado sesión no pertenece a nuestra hoja de datos"),
+            actions: <Widget>[
+              TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: const Text('OK'))
+            ],
+          );
+        });
   }
 
   void showMessage(String message) {

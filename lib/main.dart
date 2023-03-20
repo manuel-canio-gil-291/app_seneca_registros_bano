@@ -1,13 +1,5 @@
 import 'package:app_seneca_registros_bano/firebase_options.dart';
-import 'package:app_seneca_registros_bano/pages/alumnado_page.dart';
-import 'package:app_seneca_registros_bano/pages/calendario_page.dart';
-import 'package:app_seneca_registros_bano/pages/cursos_page.dart';
-import 'package:app_seneca_registros_bano/pages/home_page.dart';
-import 'package:app_seneca_registros_bano/pages/login_page.dart';
-import 'package:app_seneca_registros_bano/pages/registros_alumno_filtrado_page.dart';
-import 'package:app_seneca_registros_bano/pages/registros_barra_filtro.dart';
-import 'package:app_seneca_registros_bano/pages/registros_page.dart';
-import 'package:app_seneca_registros_bano/pages/toilet_page.dart';
+import 'package:app_seneca_registros_bano/utils/pages.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
