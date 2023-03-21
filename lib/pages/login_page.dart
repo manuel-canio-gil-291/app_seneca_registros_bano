@@ -143,9 +143,10 @@ class _LoginPageState extends State<LoginPage> {
         FirebaseService service = FirebaseService();
         try {
           await service.signInwithGoogle();
-          if (await checker.compruebaEmail()) {
-            Navigator.pushNamedAndRemoveUntil(
-                context, 'homepage', (route) => false);
+          User? user = FirebaseAuth.instance.currentUser;
+          if (await checker.compruebaEmail(user) == true) {
+            Navigator.pushNamed(
+                context, 'homepage');
           } else {
             await service.signOutFromGoogle();
             showMessageLogin();
@@ -165,7 +166,7 @@ class _LoginPageState extends State<LoginPage> {
           padding: const EdgeInsets.all(10.0)),
       icon: const FaIcon(FontAwesomeIcons.google),
       label: const Text(
-        "Entrar con Google",
+        "Entrar",
         style: TextStyle(fontSize: 20.0),
       ),
     );

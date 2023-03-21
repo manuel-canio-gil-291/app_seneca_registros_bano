@@ -67,9 +67,9 @@ class _HomePageState extends State<HomePage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  const Text(
-                    'Caño Gil, Manuel',
-                    style: TextStyle(
+                  Text(
+                    '${user!.displayName}',
+                    style: const TextStyle(
                         fontWeight: FontWeight.bold, color: Colors.black),
                   ),
                   const SizedBox(width: 110.0),
@@ -98,47 +98,6 @@ class _HomePageState extends State<HomePage> {
                       color: Colors.blue[700], fontWeight: FontWeight.bold),
                 ),
               ),
-              Container(
-                margin: const EdgeInsets.only(top: 25.0),
-                color: Colors.lightBlue,
-                height: height * 0.1,
-                child: const Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    ElevatedButton(
-                        onPressed: null,
-                        child: Row(
-                          children: [
-                            SizedBox(width: 15.0),
-                            Icon(Icons.alarm, color: Colors.white),
-                            SizedBox(width: 15.0),
-                            Text(
-                              'Avisos',
-                              textAlign: TextAlign.right,
-                              style: TextStyle(color: Colors.white),
-                            ),
-                            SizedBox(width: 10.0),
-                            VerticalDivider(color: Colors.white),
-                            ElevatedButton(
-                                onPressed: null,
-                                child: Row(
-                                  children: [
-                                    Icon(Icons.library_books,
-                                        color: Colors.white),
-                                    SizedBox(width: 8.0),
-                                    Text(
-                                      'Bandeja de firmas',
-                                      textAlign: TextAlign.right,
-                                      style: TextStyle(color: Colors.white),
-                                    )
-                                  ],
-                                ))
-                          ],
-                        ))
-                  ],
-                ),
-              ),
               if (user != null)
                 Center(
                   child: Padding(
@@ -157,6 +116,47 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ),
+              Container(
+                margin: const EdgeInsets.only(top: 25.0),
+                color: Colors.lightBlue,
+                height: height * 0.1,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    ElevatedButton(
+                        onPressed: null,
+                        child: Row(
+                          children: [
+                            const SizedBox(width: 15.0),
+                            const Icon(Icons.alarm, color: Colors.white),
+                            const SizedBox(width: 15.0),
+                            const Text(
+                              'Avisos',
+                              textAlign: TextAlign.right,
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            const SizedBox(width: 10.0),
+                            const VerticalDivider(color: Colors.white),
+                            ElevatedButton(
+                                onPressed: null,
+                                child: Row(
+                                  children: const [
+                                    Icon(Icons.library_books,
+                                        color: Colors.white),
+                                    SizedBox(width: 8.0),
+                                    Text(
+                                      'Bandeja de firmas',
+                                      textAlign: TextAlign.right,
+                                      style: TextStyle(color: Colors.white),
+                                    )
+                                  ],
+                                ))
+                          ],
+                        ))
+                  ],
+                ),
+              ),
             ],
           ),
         ),

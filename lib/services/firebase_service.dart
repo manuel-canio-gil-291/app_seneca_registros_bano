@@ -7,7 +7,7 @@ class FirebaseService {
       clientId:
           '224306810903-5ukq0m9prd8abuu6p2ra9frt7btdvjm4.apps.googleusercontent.com');
 
-  Future<String?> signInwithGoogle() async {
+  signInwithGoogle() async {
     try {
       final GoogleSignInAccount? googleSignInAccount =
           await _googleSignIn.signIn();
@@ -18,13 +18,11 @@ class FirebaseService {
           idToken: googleSignInAuthentication.idToken);
       await _auth.signInWithCredential(credential);
     } on FirebaseAuthException catch (e) {
-      print(e.message);
       rethrow;
     }
-    return null;
   }
 
-  Future<void> signOutFromGoogle() async {
+  signOutFromGoogle() async {
     await _googleSignIn.signOut();
     await _auth.signOut();
   }
