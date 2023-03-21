@@ -84,10 +84,7 @@ class _RegistrosBarraFiltroState extends State<RegistrosBarraFiltro> {
                     return ListTile(
                       title: Text(
                           '$total - Alumno:$nombreAlumno - Curso:$cursoAlumno'),
-                      onTap: () {
-                        //Navigator.pushNamed(context, 'filtroAlumno',
-                        //    arguments: '$nombreAlumno.$cursoAlumno');
-                      },
+                      onTap: () {},
                     );
                   }))
         ],

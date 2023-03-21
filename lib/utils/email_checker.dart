@@ -2,7 +2,6 @@ import 'package:app_seneca_registros_bano/utils/providers.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class EmailChecker {
-  //User? user = FirebaseAuth.instance.currentUser;
   final EmailsProvider correoprovider = EmailsProvider();
 
   compruebaEmail(User? user) async {

@@ -56,19 +56,11 @@ class _LoginPageState extends State<LoginPage> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             _titulo(),
-            //SizedBox(width: width * 0.85, child: _textFieldUsuario()),
-            //const SizedBox(height: 25.0),
-            //SizedBox(width: width * 0.85, child: _textFieldPassword()),
-            //const SizedBox(height: 25.0),
-            //SizedBox(width: width * 0.85, height: 40.0, child: _botonEntrar()),
-            //const SizedBox(height: 25.0),
             SizedBox(
                 width: width * 0.85,
                 height: 40.0,
                 child: _botonEntrarGoogle(loading)),
             const SizedBox(height: 25.0),
-            //_recordarpassword(),
-            //const SizedBox(height: 25.0),
             _imagen(),
             _version(height),
           ],
@@ -118,14 +110,10 @@ class _LoginPageState extends State<LoginPage> {
       style: ElevatedButton.styleFrom(
         backgroundColor: Colors.white,
         foregroundColor: Colors.blue,
-        //disabledColor: Colors.grey,
-        //disabledTextColor: Colors.black,
         padding: const EdgeInsets.all(10.0),
-        //splashColor: Colors.blueAccent,
       ),
       onPressed: () {
         comprobarUsuario(context);
-        //Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
       },
       child: const Text(
         "Entrar",
@@ -211,9 +199,6 @@ class _LoginPageState extends State<LoginPage> {
           user.password == controller2.text) {
         Navigator.pushNamed(context, 'homepage');
       }
-
-      //Navigator.push(
-      //    context, MaterialPageRoute(builder: (context) => HomePage()));
     }
   }
 
