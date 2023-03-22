@@ -82,8 +82,8 @@ class _ToiletPageState extends State<ToiletPage> {
                         textStyle: const TextStyle(fontSize: 20)),
                     onPressed: () {
                       setState(() {
-                        _list[0] = !_list[1];
-                        _list[0] = !_list[1];
+                        _list[0] = !_list[0];
+                        _list[1] = !_list[1];
                       });
                       setIgnoring(!ignoring);
                       String vuelta = 'volver';
@@ -151,7 +151,7 @@ class _ToiletPageState extends State<ToiletPage> {
             TextButton(
               child: const Text('Volver'),
               onPressed: () {
-                Navigator.pop(context);
+                Navigator.pushNamed(context, 'homepage');
               },
             ),
           ],
