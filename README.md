@@ -2,6 +2,12 @@
 
 Una aplicación web destinada al profesorado para hacer un registro de los alumnos que van al baño.
 
+## Tabla de contenidos
+- [Funcionamiento](#funcionamiento)
+- [Requisitos](#requisitos)
+- [Instalación](#instalación)
+- [Lenguajes de programación utilizados](#lenguajes-de-programación-utilizados)
+
 ## Funcionamiento
 
 Este proyecto consiste en controlar y registrar la información de cada uno de los alumnos que van al baño, para poder sacar unas conclusiones de esos registros y trabajarla para ver si existe un problema con alguno de ellos y contactar con la familia.
@@ -28,8 +34,26 @@ Para instalar y configurar el proyecto de la aplicación web del registro de ba�
 ```
 npm install -g firebase-tools
 ```
-4. Iniciar sesión con una cuenta de Google que usamos para conectar al proyecto con Firebase
+4. Iniciar sesión con una cuenta de Google que usamos para conectar al proyecto con Firebase.
 ```
 firebase login
 ```
+5. Activar el CLI del FlutterFire
+```
+dart pub global activate flutterfire_cli
+```
+6. Instalar el complemento principal y configurar Firebase en el proyecto de la aplicación web.
+```
+flutter pub add firebase_core
+flutterfire configure
+```
+7. Obtener todas las dependencias del proyecto para ejecutar la aplicación web.
+```
+flutter pub get
+```
 
+## Lenguajes de programación utilizados
+
+Este proyecto utiliza los siguientes lenguajes de programación:
+- **Google Apps Script** para el desarrollo web que se encarga de realizar las llamadas para obtener los registros de las hojas de cálculo de **Google Sheets** o escribirlas en ella.
+- **Dart** con el framework de **Flutter** para el desarrollo de la aplicación web.
